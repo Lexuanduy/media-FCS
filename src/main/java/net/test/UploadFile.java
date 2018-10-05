@@ -1,10 +1,7 @@
 package net.test;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.file.Paths;
 import java.util.Enumeration;
@@ -31,12 +28,14 @@ import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
  * Servlet implementation class UploadFile
  */
 @WebServlet("/hello")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+maxFileSize = 1024 * 1024 * 10, // 10MB
+maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static Logger log = Logger.getLogger(HelloAppEngine.class.getName());
 	GcsService gcsService = GcsServiceFactory.createGcsService();
-
+	public static final String SAVE_DIRECTORY = "uploadDir";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -62,6 +61,8 @@ public class UploadFile extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
 		log.warning("upload sound");
 		Enumeration<String> paramNames = request.getParameterNames();
 		while (paramNames.hasMoreElements()) {
@@ -85,7 +86,8 @@ public class UploadFile extends HttpServlet {
 
 				GcsOutputChannel outputChannel;
 				long now = System.currentTimeMillis();
-				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
+				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", now + ".wav");
+//				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
 				byte[] imageByte = buffer;
