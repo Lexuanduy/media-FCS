@@ -90,8 +90,8 @@ public class UploadFile extends HttpServlet {
 //				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
-				byte[] imageByte = buffer;
-				ByteBuffer buf = ByteBuffer.wrap(imageByte);
+				byte[] audioByte = buffer;
+				ByteBuffer buf = ByteBuffer.wrap(audioByte);
 				GcsFileOptions options = new GcsFileOptions.Builder()
 
 						.acl("public-read").build();
