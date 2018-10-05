@@ -43,7 +43,6 @@ public class UploadFileServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	GcsService gcsService = GcsServiceFactory.createGcsService();
 	static Logger log = Logger.getLogger(HelloAppEngine.class.getName());
-	private static Storage storage = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()

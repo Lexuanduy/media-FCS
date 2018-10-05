@@ -21,8 +21,6 @@
         <br />
         <input type="file" name="file"  />
         <br />
-        <input type="file" name="file" />
-        <br />
         Description:
         <br />
         <input type="text" name="description" size="100" />
