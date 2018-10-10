@@ -71,7 +71,7 @@ public class UploadFile extends HttpServlet {
 			String param = request.getParameter(paramName);
 			log.warning(param);
 		}
-
+		long now = 0;
 		List<Part> fileParts = request.getParts().stream().filter(part -> "file".equals(part.getName()))
 				.collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
 
@@ -85,38 +85,31 @@ public class UploadFile extends HttpServlet {
 				fileContent.read(buffer);
 
 				GcsOutputChannel outputChannel;
-				long now = System.currentTimeMillis();
+				now = System.currentTimeMillis();
 				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", now + ".wav");
 //				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
+			
 				byte[] audioByte = buffer;
 				ByteBuffer buf = ByteBuffer.wrap(audioByte);
 				GcsFileOptions options = new GcsFileOptions.Builder()
 
 						.acl("public-read").build();
 				outputChannel = gcsService.createOrReplace(fileName2, options);
-
+				
 				outputChannel.write(buf);
 				log.warning("close");
+				
 				outputChannel.close();
+				
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+			
+			response.getWriter().println("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
+			
 		}
 	}
-
-	private String getFileName(Part part) {
-		String contentDisp = part.getHeader("content-disposition");
-		System.out.println("content-disposition header= " + contentDisp);
-		String[] tokens = contentDisp.split(";");
-		for (String token : tokens) {
-			if (token.trim().startsWith("filename")) {
-				return token.substring(token.indexOf("=") + 2, token.length() - 1);
-			}
-		}
-		return "";
-	}
-
 }

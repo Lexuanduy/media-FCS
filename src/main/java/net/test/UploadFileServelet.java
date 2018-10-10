@@ -72,7 +72,9 @@ public class UploadFileServelet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		long now = 0;
+		
+		
 		try {
 			String description = request.getParameter("description");
 			System.out.println("Description: " + description);
@@ -85,17 +87,9 @@ public class UploadFileServelet extends HttpServlet {
 				String param = request.getParameter(paramName);
 				log.warning(param);
 			}
-			// Danh mục các phần đã upload lên (Có thể là nhiều file).
-//			for (Part part1 : request.getParts()) {
-//				String fileName1 = extractFileName(part1);
-//				if (fileName1 != null && fileName1.length() > 0) {
-//					String filePath = "C:/Users/duyle/eclipse-workspace/Test/src/main/webapp/" + fileName1;
-//					// Ghi vào file.
-//					part1.write(filePath);
-//				}
-//			}
 			List<Part> fileParts = request.getParts().stream().filter(part -> "file".equals(part.getName()))
 					.collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
+
 			for (Part part : request.getParts()) {
 				// upload
 				try {
@@ -105,7 +99,7 @@ public class UploadFileServelet extends HttpServlet {
 					byte[] buffer = new byte[fileContent.available()];
 					fileContent.read(buffer);
 					GcsOutputChannel outputChannel;
-					long now = System.currentTimeMillis();
+					now = System.currentTimeMillis();
 					GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", now + ".wav");
 					log.warning(fileName2.getBucketName());
 					GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
@@ -122,30 +116,12 @@ public class UploadFileServelet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			response.getWriter().print("upload success");
+			log.warning("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.getWriter().println(e.getMessage());
 		}
-	}
-
-	private String extractFileName(Part part) {
-		// form-data; name="file"; filename="C:\file1.zip"
-		// form-data; name="file"; filename="C:\Note\file2.zip"
-		String contentDisp = part.getHeader("content-disposition");
-		String[] items = contentDisp.split(";");
-		for (String s : items) {
-			if (s.trim().startsWith("filename")) {
-				// C:\file1.zip
-				// C:\Note\file2.zip
-				String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
-				clientFileName = clientFileName.replace("\\", "/");
-				int i = clientFileName.lastIndexOf('/');
-				// file1.zip
-				// file2.zip
-				return clientFileName.substring(i + 1);
-			}
-		}
-		return null;
+		response.getWriter().println("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
+		return;
 	}
 }

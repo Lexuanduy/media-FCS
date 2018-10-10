@@ -151,6 +151,8 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(url) {
+        document.getElementById("idShareMediaLink").value = url;
+        	console.log("url");
           $("#audio").attr("src", url);
           $("#audio")[0].play();
           alert("Saved In Server. See audio element's src for URL");
