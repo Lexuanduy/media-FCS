@@ -27,15 +27,16 @@ import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 /**
  * Servlet implementation class UploadFile
  */
-@WebServlet("/hello")
+@WebServlet("/hello/*")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
-maxFileSize = 1024 * 1024 * 10, // 10MB
-maxRequestSize = 1024 * 1024 * 50) // 50MB
+		maxFileSize = 1024 * 1024 * 10, // 10MB
+		maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static Logger log = Logger.getLogger(HelloAppEngine.class.getName());
 	GcsService gcsService = GcsServiceFactory.createGcsService();
 	public static final String SAVE_DIRECTORY = "uploadDir";
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -52,6 +53,7 @@ public class UploadFile extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -61,8 +63,7 @@ public class UploadFile extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+
 		log.warning("upload sound");
 		Enumeration<String> paramNames = request.getParameterNames();
 		while (paramNames.hasMoreElements()) {
@@ -72,6 +73,7 @@ public class UploadFile extends HttpServlet {
 			log.warning(param);
 		}
 		long now = 0;
+		String id = null;
 		List<Part> fileParts = request.getParts().stream().filter(part -> "file".equals(part.getName()))
 				.collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
 
@@ -86,30 +88,28 @@ public class UploadFile extends HttpServlet {
 
 				GcsOutputChannel outputChannel;
 				now = System.currentTimeMillis();
-				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", now + ".wav");
+				now = now / 1000;
+				id = Long.toString(now, Character.MAX_RADIX);
+				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", id + ".wav");
 //				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
-			
+
 				byte[] audioByte = buffer;
 				ByteBuffer buf = ByteBuffer.wrap(audioByte);
-				GcsFileOptions options = new GcsFileOptions.Builder()
-
-						.acl("public-read").build();
+				GcsFileOptions options = new GcsFileOptions.Builder().acl("public-read").build();
 				outputChannel = gcsService.createOrReplace(fileName2, options);
-				
+
 				outputChannel.write(buf);
 				log.warning("close");
-				
+
 				outputChannel.close();
-				
+
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			
-			response.getWriter().println("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
-			
+			response.getWriter().println(id);
 		}
 	}
 }

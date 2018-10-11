@@ -73,8 +73,7 @@ public class UploadFileServelet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		long now = 0;
-		
-		
+		String id = null;
 		try {
 			String description = request.getParameter("description");
 			System.out.println("Description: " + description);
@@ -100,7 +99,9 @@ public class UploadFileServelet extends HttpServlet {
 					fileContent.read(buffer);
 					GcsOutputChannel outputChannel;
 					now = System.currentTimeMillis();
-					GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", now + ".wav");
+					now = now / 1000;
+					id = Long.toString(now, Character.MAX_RADIX);
+					GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", id + ".wav");
 					log.warning(fileName2.getBucketName());
 					GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
 					byte[] audioByte = buffer;
@@ -110,18 +111,18 @@ public class UploadFileServelet extends HttpServlet {
 					outputChannel.write(buf);
 					log.warning("close");
 					outputChannel.close();
-
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
 				}
 			}
-			log.warning("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
+//			log.warning("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.getWriter().println(e.getMessage());
 		}
-		response.getWriter().println("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
+		response.getWriter().println(id);
 		return;
 	}
 }
