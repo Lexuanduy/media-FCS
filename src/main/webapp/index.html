@@ -46,7 +46,7 @@
 					class="button disabled one" id="base64">Base64 URL</a> <a
 					class="button disabled one" id="save">Upload to Server</a>
 			</div>
-			<div class="sharing-options">
+			<!-- <div class="sharing-options">
 				Sharing options:
 				<div class="logo-share">
 					<div id="shareBtn"
@@ -87,11 +87,10 @@
 								<div class="atclear"></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="shareMedia">
 				<input type="text" id="idShareMediaLink" class="shareVocarooLinkBox"
-					title="For sharing..." onclick="this.select();" readonly=""
-					value="">
+					title="For sharing..." value="">
 			</div>
 			<canvas id="level" height="200"></canvas>
 		</div>
@@ -208,7 +207,7 @@ a.button {
 .shareMedia {
 	width: 100%;
 	float: left;
-	margin: 8px 0 8px 0;
+	margin: 25px 0 15px 0;
 }
 
 #save {
@@ -237,12 +236,6 @@ a.button {
 	width: 65%;
 }
 
-.shareMedia {
-	width: 100%;
-	float: left;
-	margin: 8px 0 8px 0;
-}
-
 canvas {
 	display: block;
 }
@@ -268,6 +261,15 @@ canvas {
 			}, function(response) {
 			});
 		}
+		
+		//Share button 
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=2123644714366121&autoLogAppEvents=1';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
 </body>
 </html>

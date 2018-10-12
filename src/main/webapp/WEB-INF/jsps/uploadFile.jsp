@@ -4,6 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/jquery.js"></script>
@@ -32,14 +36,14 @@
 					<button id="submit" class="btn-submit">Upload</button>
 				</div>
 			</div>
-			<div class="sharing-options">
+			<!-- <div class="sharing-options">
 				Sharing options:
 				<div class="logo-share">
-					<div id="shareBtn"
+					<div
 						class="addthis_toolbox addthis_default_style addthis_32x32_style">
 						<a
 							class="addthis_button_facebook addthis_button_preferred_1 at300b"
-							title="Facebook" href="#"> <span class="at-icon-wrapper"
+							title="Facebook" href=""> <span class="at-icon-wrapper"
 							style="background-color: rgb(59, 89, 152); line-height: 32px; height: 32px; width: 32px;">
 								<svg xmlns="http://www.w3.org/2000/svg"
 									xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
@@ -58,25 +62,34 @@
 						</span>
 						</a> <a
 							class="addthis_button_twitter addthis_button_preferred_2 at300b"
-							title="Twitter" href="#"><span class="at-icon-wrapper"
-							style="background-color: rgb(29, 161, 242); line-height: 32px; height: 32px; width: 32px;"><svg
-									xmlns="http://www.w3.org/2000/svg"
+							title="Twitter" href=""> <span class="at-icon-wrapper"
+							style="background-color: rgb(29, 161, 242); line-height: 32px; height: 32px; width: 32px;">
+								<svg xmlns="http://www.w3.org/2000/svg"
 									xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
 									version="1.1" role="img" aria-labelledby="at-svg-twitter-3"
 									title="Twitter" alt="Twitter"
 									style="width: 32px; height: 32px; background-color: #1DA1F2;"
 									class="at-icon at-icon-twitter">
-								<title id="at-svg-twitter-3">Twitter</title><g>
-								<path
+									<title id="at-svg-twitter-3">Twitter</title>
+									<g>
+										<path
 										d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336"
-										fill-rule="evenodd"></path></g></svg>
-								<div class="atclear"></div>
+										fill-rule="evenodd">
+										</path>
+									</g>
+								</svg>
+						</span>
+						</a>
+						<div class="atclear"></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
+
 			<div class="shareMedia">
-				<div id="file-link"></div>
+				<input type="text" title="For sharing..." id="file-link" value="">
 			</div>
+			<div id="shareBtn" class="btn btn-success clearfix">Share</div>
+			
 		</div>
 	</div>
 	<style>
@@ -136,7 +149,7 @@
 .shareMedia {
 	width: 100%;
 	float: left;
-	margin: 8px 0 8px 0;
+	margin: 25px 0 15px 0;
 }
 
 .sharing-options {
@@ -164,7 +177,7 @@
 		}
 		document.getElementById("file").addEventListener("change", handleFiles,
 				false);
-
+		var link = "";
 		$("#submit").click(function() {
 			blob = $("#file")[0].files[0];
 			var formData = new FormData();
@@ -178,10 +191,18 @@
 				processData : false,
 				success : function(data) {
 					console.log(data);
-					$("#file-link").html("https://mymedia-218206.appspot.com/Detail/" + data);
+					/* $("#file-link").html("/Detail?fileId=" + data); */
+					link = "/Detail?fileId=" + data;
+					document.getElementById("file-link").value = link;
 				}
 			});
 		});
+		//Share button 
+		$("#shareBtn").click(function(){
+			console.log("share facebook");
+			window.open('http://facebook.com/sharer/sharer.php?u='+encodeURIComponent(link), '', 'left=0,top=0,width=650,height=420,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
+		});
+		
 	</script>
 </body>
 </html>

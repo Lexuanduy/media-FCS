@@ -59,7 +59,7 @@ public class UploadFileServelet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/uploadFile.jsp");
 		dispatcher.forward(request, response);
@@ -75,8 +75,6 @@ public class UploadFileServelet extends HttpServlet {
 		long now = 0;
 		String id = null;
 		try {
-			String description = request.getParameter("description");
-			System.out.println("Description: " + description);
 
 			log.warning("upload sound");
 			Enumeration<String> paramNames = request.getParameterNames();
