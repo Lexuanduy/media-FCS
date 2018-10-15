@@ -91,7 +91,6 @@ public class UploadFile extends HttpServlet {
 				now = now / 1000;
 				id = Long.toString(now, Character.MAX_RADIX);
 				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", id + ".wav");
-//				GcsFilename fileName2 = new GcsFilename("staging.mymedia-218206.appspot.com", "sound/" + now + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
 

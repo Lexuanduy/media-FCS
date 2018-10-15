@@ -114,8 +114,6 @@ public class UploadFileServelet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-//			log.warning("https://storage.cloud.google.com/mymedia-218206.appspot.com/" + now + ".wav");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.getWriter().println(e.getMessage());
