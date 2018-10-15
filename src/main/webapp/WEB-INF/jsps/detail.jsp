@@ -25,9 +25,9 @@
 					src="https://storage.cloud.google.com/mymedia-218206.appspot.com/${fileId}.wav"
 					id="audio" />
 			</audio>
-			<div class="bottom">© 2018
+			<!-- <div class="bottom">© 2018
 			<a href="https://mymedia-218206.appspot.com">My media</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<script>
