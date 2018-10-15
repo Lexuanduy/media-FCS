@@ -1,0 +1,17 @@
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+.content {
+	width: 40%;
+	margin: 0 auto center;
+}
+.bottom{
+	text-align:center;
+	margin-top:5px;
+}
+.link-web{
+	float:left;
+}

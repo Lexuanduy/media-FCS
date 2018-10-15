@@ -1,6 +1,6 @@
 function restore(){
   $("#record, #live").removeClass("disabled");
-  $("#pause").replaceWith('<a class="button one" id="pause">Pause</a>');
+  $("#pause").replaceWith('<button type="button" id="pause" class="button one btn btn-secondary">Pause</button>');
   $(".one").addClass("disabled");
   Fr.voice.stop();
 }
@@ -82,10 +82,10 @@ $(document).ready(function(){
   $(document).on("click", "#pause:not(.disabled)", function(){
     if($(this).hasClass("resume")){
       Fr.voice.resume();
-      $(this).replaceWith('<a class="button one" id="pause">Pause</a>');
+      $(this).replaceWith('<button type="button" id="pause" class="button one btn btn-secondary">Pause</button>');
     }else{
       Fr.voice.pause();
-      $(this).replaceWith('<a class="button one resume" id="pause">Resume</a>');
+      $(this).replaceWith('<button type="button" id="pause" class="button one resume btn btn-info">Resume</button>');
     }
   });
 
@@ -140,6 +140,7 @@ $(document).ready(function(){
     restore();
   });
 
+  var link = "";
   $(document).on("click", "#save:not(.disabled)", function(){
     function upload(blob){
       var formData = new FormData();
@@ -151,8 +152,8 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(url) {
-        	var link = "/Detail?fileId=";
-        document.getElementById("idShareMediaLink").value = link + url;
+        	link = "https://mymedia-218206.appspot.com/Detail?fileId=" + url;
+        document.getElementById("idShareMediaLink").value = link;
         	console.log("url");
           $("#audio").attr("src", url);
           $("#audio")[0].play();
@@ -166,5 +167,11 @@ $(document).ready(function(){
       Fr.voice.export(upload, "blob");
     }
     restore();
+  });
+  
+	// Share button
+  $(document).on("click", "#shareBtn", function(){
+	  console.log("share facebook");
+		window.open('http://facebook.com/sharer/sharer.php?u='+encodeURIComponent(link), '', 'left=0,top=0,width=650,height=420,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
   });
 });

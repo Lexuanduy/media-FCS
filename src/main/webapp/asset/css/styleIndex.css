@@ -1,0 +1,254 @@
+@charset "ISO-8859-1";
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+.content {
+	width: 40%;
+	margin: 0 auto center;
+}
+
+.upload {
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+.upload-content{
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+.record-text {
+	width: 50%;
+	margin: 0;
+	float: left;
+}
+
+.h2 {
+	width: 100%;
+	margin: 0;
+	width: 100%;
+}
+
+h2 {
+	color: chocolate;
+}
+
+.upload-link {
+	width: 50%;
+	margin: 0;
+	float: left;
+	padding-top: 15px;
+	text-
+}
+
+.upload-link a {
+	float: right;
+}
+
+#audio {
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+
+.wav-controls {
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+
+.wav-controls p {
+    padding-top: 25px;
+    margin-bottom: 3px;
+}
+
+.button {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px 5px;
+	padding: 5px 12px;
+	cursor: pointer;
+	outline: none;
+	font-size: 13px;
+	text-decoration: none !important;
+	text-align: center;
+	color: #fff;
+	background-color: #4D90FE;
+	background-image: linear-gradient(top, #4D90FE, #4787ED);
+	background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
+	background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
+	background-image: linear-gradient(top, #4D90FE, #4787ED);
+	border: 1px solid #4787ED;
+	box-shadow: 0 1px 3px #BFBFBF;
+}
+
+a.button {
+	color: #fff;
+}
+
+.button:hover {
+	box-shadow: inset 0px 1px 1px #8C8C8C;
+}
+
+.button.disabled {
+	box-shadow: none;
+	opacity: 0.7;
+}
+
+.record-btn {
+	width: 100%;
+	float: left;
+	margin: 8px 0 0 0;
+	padding-left: 0;
+}
+
+.live-box {
+	width: 100%;
+	float: left;
+	margin: 8px 0 8px 0;
+}
+
+.media-link {
+	width: 100%;
+	float: left;
+	margin: 8px 0 8px 0;
+}
+
+.shareMedia {
+	width: 100%;
+	float: left;
+	margin: 5px 0 15px 0;
+}
+
+#save {
+	margin-left: 0;
+}
+
+#record {
+	margin-left: 0;
+}
+
+#live {
+	margin-left: 0;
+}
+
+#play {
+	margin-left: 0;
+}
+
+#level {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+#idShareMediaLink {
+	width: 65%;
+}
+
+canvas {
+	display: block;
+}
+
+.sharing-options {
+	width: 100%;
+	margin: 8px 0 0 0;
+	float: left;
+}
+
+.logo-share {
+	width: 100%;
+	float: left;
+	margin: 8px 0 0 0;
+}
+
+.input-group {
+	padding-top: 15px;
+}
+
+#shareBtn {
+	margin-bottom: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.error-message {
+	width: 100%;
+	margin: 5px 0 5px 0;
+	float: left;
+}
+
+.upload-text {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	color: chocolate;
+}
+
+.form-upload {
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+.select-file {
+	width: 100%;
+	margin: 0 0 5px 0;
+	float: left;
+}
+
+.input-file {
+	width: 100%;
+	margin-top: 5px;
+	float: left;
+}
+
+#player {
+	width: 100%;
+	float: left;
+	margin: 5px 0 8px 0;
+}
+
+.submit {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.shareMedia {
+	width: 100%;
+	float: left;
+	margin: 25px 0 15px 0;
+}
+
+.sharing-options {
+	width: 100%;
+	margin: 8px 0 0 0;
+	float: left;
+}
+
+#idShareMediaLink {
+	width: 100%;
+}
+
+#file-link {
+	margin: 0 auto;
+	float: left;
+}
+.bottom{
+	text-align:center;
+	margin-top:5px;
+}

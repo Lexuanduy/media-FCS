@@ -1,0 +1,89 @@
+.container {
+	width: 100%;
+	margin: 0 auto padding-top:30px;
+	padding-top:30px;
+}
+
+.content {
+	width: 40%;
+	margin: 0 auto center;
+}
+
+.error-message {
+	width: 100%;
+	margin: 5px 0 5px 0;
+	float: left;
+}
+
+.upload-return {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.upload-text {
+	width: 60%;
+	float: left;
+	color: chocolate;
+}
+
+.record-link {
+	width: 40%;
+	float: left;
+	margin: 0;
+	padding-top: 14px;
+	margin: 0 auto;
+}
+
+a {
+	float: right;
+}
+
+.select-file {
+	width: 100%;
+	margin: 0 0 5px 0;
+	float: left;
+}
+
+.input-file {
+	width: 100%;
+	margin: 5px 0 15px 0;
+	float: left;
+}
+
+#player {
+	width: 100%;
+	float: left;
+	margin: 3px 0 8px 0;
+}
+
+.submit {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.shareMedia {
+	width: 100%;
+	float: left;
+	margin: 25px 0 15px 0;
+}
+
+.sharing-options {
+	width: 100%;
+	margin: 8px 0 0 0;
+	float: left;
+}
+
+#idShareMediaLink {
+	width: 100%;
+}
+
+#file-link {
+	margin: 0 auto;
+	float: left;
+}
+.bottom{
+	text-align:center;
+	margin-top:5px;
+}
