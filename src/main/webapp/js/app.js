@@ -152,7 +152,7 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(url) {
-        	link = "https://mymedia-218206.appspot.com/Detail?fileId=" + url;
+        	link = "/i?f=" + url;
         document.getElementById("idShareMediaLink").value = link;
         	console.log("url");
           $("#audio").attr("src", url);

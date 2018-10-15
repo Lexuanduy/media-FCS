@@ -19,7 +19,7 @@ import com.google.appengine.api.files.FileServiceFactory;
 /**
  * Servlet implementation class Detail
  */
-@WebServlet("/Detail/*")
+@WebServlet("/i/*")
 public class Detail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,8 +40,8 @@ public class Detail extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		//
-		String fileId = request.getParameter("fileId");
-		request.setAttribute("fileId", fileId);
+		String fileId = request.getParameter("f");
+		request.setAttribute("f", fileId);
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/detail.jsp");
 		dispatcher.forward(request, response);
 

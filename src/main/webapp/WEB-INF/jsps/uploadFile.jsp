@@ -78,6 +78,7 @@
 		}
 		document.getElementById("file").addEventListener("change", handleFiles,
 				false);
+		
 		var link = "";
 		$("#submit")
 				.click(
@@ -86,8 +87,7 @@
 							var formData = new FormData();
 							formData.append('file', blob);
 							console.log("click submit");
-							$
-									.ajax({
+							$.ajax({
 										url : "/uploadFile",
 										type : 'POST',
 										data : formData,
@@ -96,10 +96,8 @@
 										success : function(data) {
 											console.log(data);
 											/* $("#file-link").html("/Detail?fileId=" + data); */
-											link = "https://mymedia-218206.appspot.com/Detail?fileId="
-													+ data;
-											document
-													.getElementById("file-link").value = link;
+											link = "/i?f=" + data;
+											document.getElementById("file-link").value = link;
 										}
 									});
 						});
