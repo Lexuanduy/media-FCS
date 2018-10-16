@@ -1,4 +1,5 @@
 @charset "ISO-8859-1";
+
 .container {
 	width: 100%;
 	margin: 0 auto;
@@ -16,7 +17,7 @@
 	float: left;
 }
 
-.upload-content{
+.upload-content {
 	width: 100%;
 	margin: 0 auto;
 	float: left;
@@ -28,14 +29,9 @@
 	float: left;
 }
 
-.h2 {
-	width: 100%;
-	margin: 0;
-	width: 100%;
-}
-
 h2 {
 	color: chocolate;
+	font-size: 3rem;
 }
 
 .upload-link {
@@ -46,29 +42,67 @@ h2 {
 	text-
 }
 
+.voice-media {
+	width: 100%;
+	float: left;
+	margin: 0;
+	text-align: left;
+	background-color: lavender;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 6px;
+	background-clip: padding-box;
+}
+
 .upload-link a {
 	float: right;
 }
-.playerBox{
-	width:100%;
-	float:left;
+
+.playerBox {
+	width: 100%;
+	float: left;
 	margin: 0 auto;
 }
+
 #audio {
 	width: 100%;
 	float: left;
 	margin: 0;
+	display: none;
+}
+
+#player{
+	display:none;
 }
 
 .wav-controls {
 	width: 100%;
 	float: left;
-	margin: 0;
+	margin-bottom: 8px;
+	display: none;
+}
+
+.text-controls {
+	width: 26.5%;
+	float: left;
+	margin: 0 auto;
+}
+
+.control-buttons {
+	width: 73.5%;
+	float: left;
+	margin: 0 auto;
 }
 
 .wav-controls p {
-    padding-top: 25px;
-    margin-bottom: 3px;
+	padding-top: 8px;
+	margin-bottom: 3px;
 }
 
 .button {
@@ -104,11 +138,35 @@ a.button {
 	opacity: 0.7;
 }
 
+.playerBox {
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.record-box {
+	width: 100%;
+	float: left;
+	height: 140px;
+	margin: 5px 0 10px 0;
+	text-align: center;
+}
+
+.record-box-content {
+	width: 220px;
+}
+
 .record-btn {
 	width: 100%;
 	float: left;
-	margin: 8px 0 0 0;
 	padding-left: 0;
+	text-align: center;
 }
 
 .live-box {
@@ -117,16 +175,26 @@ a.button {
 	margin: 8px 0 8px 0;
 }
 
+.share-link {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
 .media-link {
 	width: 100%;
 	float: left;
 	margin: 8px 0 8px 0;
 }
 
-.shareMedia {
-	width: 100%;
+.shareMedia-link {
+	width: 70%;
 	float: left;
-	margin: 5px 0 15px 0;
+}
+
+.sharing-option {
+	width: 30%;
+	float: left;
 }
 
 #save {
@@ -134,14 +202,10 @@ a.button {
 }
 
 #record {
-	margin-left: 0;
+	margin-left: 3px;
 }
 
 #live {
-	margin-left: 0;
-}
-
-#play {
 	margin-left: 0;
 }
 
@@ -149,10 +213,7 @@ a.button {
 	width: 100%;
 	float: left;
 	margin: 0 auto;
-}
-
-#idShareMediaLink {
-	width: 65%;
+	display: none;
 }
 
 canvas {
@@ -173,21 +234,31 @@ canvas {
 
 .input-group {
 	padding-top: 15px;
+	display: none;
+	width: 100%;
+	float: left;
+	text-align: left;
+	background-color: antiquewhite;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 6px;
 }
 
 #shareBtn {
 	margin-bottom: 18px;
 }
 
-
-
-
-
-
-
-
-
-
+.share-button {
+	width: 100%;
+	float: left;
+	margin: 0;
+}
 
 .error-message {
 	width: 100%;
@@ -245,14 +316,28 @@ canvas {
 }
 
 #idShareMediaLink {
-	width: 100%;
+	margin: 0 auto;
+	float: left;
 }
 
 #file-link {
 	margin: 0 auto;
 	float: left;
 }
-.bottom{
-	text-align:center;
-	margin-top:5px;
+
+.bottom {
+	width: 100%;
+	float: left;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.shareHorizontalSeparator {
+	height: 1px;
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #E5FFB8;
+	margin-top: 10px;
 }

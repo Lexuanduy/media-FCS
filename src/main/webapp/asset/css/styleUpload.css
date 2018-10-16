@@ -1,7 +1,8 @@
+
 .container {
 	width: 100%;
 	margin: 0 auto padding-top:30px;
-	padding-top:30px;
+	padding-top: 30px;
 }
 
 .content {
@@ -35,7 +36,7 @@
 	margin: 0 auto;
 }
 
-a {
+.record-link a {
 	float: right;
 }
 
@@ -55,18 +56,72 @@ a {
 	width: 100%;
 	float: left;
 	margin: 3px 0 8px 0;
+	display: none;
+}
+
+.input-group {
+	padding-top: 15px;
+	display: none;
+	width: 100%;
+	float: left;
+	text-align: left;
+	background-color: antiquewhite;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 6px;
+}
+
+.share-link {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.shareHorizontalSeparator {
+	height: 1px;
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #E5FFB8;
+	margin-top: 10px;
+}
+
+.voice-media {
+	width: 100%;
+	float: left;
+	margin: 0;
+	text-align: left;
+	background-color: lavender;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 6px;
+	background-clip: padding-box;
 }
 
 .submit {
 	width: 100%;
 	float: left;
 	margin: 0 auto;
+	display: none;
 }
 
 .shareMedia {
 	width: 100%;
 	float: left;
-	margin: 25px 0 15px 0;
+	margin: 15px 0 15px 0;
 }
 
 .sharing-options {
@@ -83,7 +138,8 @@ a {
 	margin: 0 auto;
 	float: left;
 }
-.bottom{
-	text-align:center;
-	margin-top:5px;
+
+.bottom {
+	text-align: center;
+	margin-top: 5px;
 }
