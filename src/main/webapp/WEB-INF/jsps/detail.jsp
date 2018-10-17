@@ -57,7 +57,8 @@
 			<h2>My media - The premier voice recording service.</h2>
 			<div id="wrapper">
 				<audio preload="auto" controls>
-					<source src="https://mymedia-218206.appspot.com/${f}.wav">
+				<%-- <source src="https://storage.cloud.google.com/mymedia-218206.appspot.com/${fileId}.wav" id="audio" /> --%>
+					<source src="https://storage.cloud.google.com/mymedia-218206.appspot.com/${f}.wav" >
 				</audio>
 				<script src="js/jquery.js"></script>
 				<script src="js/audioplayer.js"></script>

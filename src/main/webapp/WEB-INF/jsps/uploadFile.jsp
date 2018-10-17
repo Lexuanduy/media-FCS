@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -34,7 +35,8 @@
 					<a href="https://mymedia-218206.appspot.com">Or record ?</a>
 				</div>
 			</div>
-			<p class="voice-media">My media - The premier voice recording service.</p>
+			<p class="voice-media">My media - The premier voice recording
+				service.</p>
 			<div class="form-upload">
 				<div class="select-file">
 					<div class="input-file">
@@ -73,7 +75,7 @@
 							<p class="sharing-option">Sharing:</p>
 						</div>
 						<div class="col-sm-8" style="padding-left: 23px">
-							<input type="text" id="file-link" class="form-control" value=""
+							<input type="text" id="file-link" class="form-control" placeholder="For sharing..." value=""
 								aria-label="For sharing" aria-describedby="basic-addon1">
 						</div>
 					</div>
@@ -132,6 +134,7 @@
 				success : function(data) {
 					console.log(data);
 					/* $("#file-link").html("/Detail?fileId=" + data); */
+					/* link = "/i?f=" + data; */
 					link = "https://mymedia-218206.appspot.com/i?f=" + data;
 					document.getElementById("file-link").value = link;
 				}
