@@ -102,6 +102,7 @@
 				</div>
 
 			</div>
+			<div class="size-file">Most common audio formats supported (view). Max size 50 MB. Please do not upload copyrighted music etc.</div>
 			<!-- <button type="button" id="shareBtn" data-toggle="tooltip"
 				data-placement="left" title="share facebook"
 				class="btn btn-primary clearfix">
