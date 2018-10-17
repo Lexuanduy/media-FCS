@@ -24,6 +24,19 @@
 <body>
 	<div class="container">
 		<div class="container content">
+			<div class="row share-link">
+				<div class="col-sm-4" style="padding-top: 5px; padding-left: 0;">
+					<p class="sharing-option">Sharing:</p>
+				</div>
+				<div class="col-sm-8" style="padding-left: 23px">
+					<input type="text" id="file-link" class="form-control"
+						placeholder="For sharing..." value="" aria-label="For sharing"
+						aria-describedby="basic-addon1">
+				</div>
+			</div>
+			<div class="loader-content">
+				<div class="loader"></div>
+			</div>
 			<div class="error-message"
 				style="padding: 5px; color: red; font-style: italic;">
 				${errorMessage}</div>
@@ -40,7 +53,8 @@
 			<div class="form-upload">
 				<div class="select-file">
 					<div class="input-file">
-						<input type="file" name="file" id="file" />
+						<input type="file" name="file" id="file"
+							onchange="ValidateSingleInput(this);" />
 					</div>
 				</div>
 				<audio id="player" data-toggle="tooltip" data-placement="left"
@@ -49,11 +63,12 @@
 				</audio>
 				<div class="submit">
 					<div class="row">
-						<div class="col-sm-4">WAV Controls:</div>
+						<div class="col-sm-4" style="padding: 10px 0px 0px 75px;">Upload:</div>
 						<div class="col-sm-8" style="padding: 6px 0px 0px 31px;">
 							<button type="button" id="submit" data-toggle="tooltip"
 								data-placement="left" title="upload to server"
-								class="btn-submit button disabled one btn btn-outline-info">
+								class="btn-submit button disabled one btn btn-outline-info"
+								style="width: 60px; height: 40px;">
 								<i class="fas fa-upload"></i>
 							</button>
 						</div>
@@ -70,7 +85,7 @@
 				</div> -->
 
 				<div class="input-group">
-					<div class="row share-link">
+					<!-- <div class="row share-link">
 						<div class="col-sm-4" style="padding-left: 0;">
 							<p class="sharing-option">Sharing:</p>
 						</div>
@@ -79,7 +94,7 @@
 								placeholder="For sharing..." value="" aria-label="For sharing"
 								aria-describedby="basic-addon1">
 						</div>
-					</div>
+					</div> -->
 					<div class="shareHorizontalSeparator"></div>
 					<div class="share-button">
 						<!-- <button type="button" id="shareBtn" title="share facebok" clearfix"> -->
@@ -102,7 +117,8 @@
 				</div>
 
 			</div>
-			<div class="size-file">Most common audio formats supported (view). Max size 50 MB. Please do not upload copyrighted music etc.</div>
+			<div class="size-file">Most common audio formats supported
+				(view). Max size 50 MB. Please do not upload copyrighted music etc.</div>
 			<!-- <button type="button" id="shareBtn" data-toggle="tooltip"
 				data-placement="left" title="share facebook"
 				class="btn btn-primary clearfix">
@@ -112,6 +128,36 @@
 	</div>
 	</div>
 	<script>
+		//valid file upload
+		var _validFileExtensions = [ ".wav", ".mp3" ];
+		function ValidateSingleInput(oInput) {
+			if (oInput.type == "file") {
+				var sFileName = oInput.value;
+				if (sFileName.length > 0) {
+					var blnValid = false;
+					for (var j = 0; j < _validFileExtensions.length; j++) {
+						var sCurExtension = _validFileExtensions[j];
+						if (sFileName.substr(
+								sFileName.length - sCurExtension.length,
+								sCurExtension.length).toLowerCase() == sCurExtension
+								.toLowerCase()) {
+							blnValid = true;
+							break;
+						}
+					}
+
+					if (!blnValid) {
+						alert("Sorry, " + sFileName
+								+ " is invalid, allowed extensions are: "
+								+ _validFileExtensions.join(", "));
+						oInput.value = "";
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+
 		function handleFiles(event) {
 			var files = event.target.files;
 			$("#audio").attr("src", URL.createObjectURL(files[0]));
@@ -139,6 +185,8 @@
 					/* link = "/i?f=" + data; */
 					link = "https://mymedia-218206.appspot.com/i?f=" + data;
 					document.getElementById("file-link").value = link;
+					$(".loader").hide();
+					$(".share-link").show();
 				}
 			});
 		});
@@ -163,6 +211,7 @@
 			});
 			$(".submit").click(function() {
 				$(".input-group").show();
+				$(".loader").show();
 			});
 		});
 	</script>

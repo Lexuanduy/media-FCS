@@ -11,6 +11,17 @@
 	margin: 0 auto center;
 }
 
+.share-option {
+	width: 100%; float : left;
+	margin: 0;
+	display: none;
+	float: left;
+}
+
+.link-share {
+	width: 100%;
+}
+
 .upload {
 	width: 100%;
 	margin: 0 auto;
@@ -77,8 +88,8 @@ h2 {
 	display: none;
 }
 
-#player{
-	display:none;
+#player {
+	display: none;
 }
 
 .wav-controls {
@@ -192,12 +203,9 @@ a.button {
 	float: left;
 }
 
-.sharing-option {
-	width: 30%;
-	float: left;
-}
-
 #save {
+	width: 55px;
+	height: 32px;
 	margin-left: 0;
 }
 
@@ -218,12 +226,6 @@ a.button {
 
 canvas {
 	display: block;
-}
-
-.sharing-options {
-	width: 100%;
-	margin: 8px 0 0 0;
-	float: left;
 }
 
 .logo-share {
@@ -316,7 +318,8 @@ canvas {
 }
 
 #idShareMediaLink {
-	margin: 0 auto;
+	color: blue;
+	border: none;
 	float: left;
 }
 
@@ -340,4 +343,34 @@ canvas {
 	margin-bottom: 10px;
 	background-color: #E5FFB8;
 	margin-top: 10px;
+}
+
+.loader-content {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.loader {
+	display: none; margin : 0 auto;
+	border: 5px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 5px solid #3498db;
+	width: 30px;
+	height: 30px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+	margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
