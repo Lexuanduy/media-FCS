@@ -32,7 +32,7 @@
 					<h2>Upload Files</h2>
 				</div>
 				<div class="record-link">
-					<a href="https://mymedia-218206.appspot.com">Or record ?</a>
+					<a href="https://mymedia-218206.appspot.com">Record now >></a>
 				</div>
 			</div>
 			<p class="voice-media">My media - The premier voice recording
@@ -50,7 +50,7 @@
 				<div class="submit">
 					<div class="row">
 						<div class="col-sm-4">WAV Controls:</div>
-						<div class="col-sm-8" style="padding-left: 31px;">
+						<div class="col-sm-8" style="padding: 6px 0px 0px 31px;">
 							<button type="button" id="submit" data-toggle="tooltip"
 								data-placement="left" title="upload to server"
 								class="btn-submit button disabled one btn btn-outline-info">
@@ -75,8 +75,9 @@
 							<p class="sharing-option">Sharing:</p>
 						</div>
 						<div class="col-sm-8" style="padding-left: 23px">
-							<input type="text" id="file-link" class="form-control" placeholder="For sharing..." value=""
-								aria-label="For sharing" aria-describedby="basic-addon1">
+							<input type="text" id="file-link" class="form-control"
+								placeholder="For sharing..." value="" aria-label="For sharing"
+								aria-describedby="basic-addon1">
 						</div>
 					</div>
 					<div class="shareHorizontalSeparator"></div>
