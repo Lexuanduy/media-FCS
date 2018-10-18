@@ -73,7 +73,7 @@ public class UploadFile extends HttpServlet {
 			log.warning(param);
 		}
 		long now = 0;
-		String id = null;
+		String file = null;
 		List<Part> fileParts = request.getParts().stream().filter(part -> "file".equals(part.getName()))
 				.collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
 
@@ -89,8 +89,8 @@ public class UploadFile extends HttpServlet {
 				GcsOutputChannel outputChannel;
 				now = System.currentTimeMillis();
 				now = now / 1000;
-				id = Long.toString(now, Character.MAX_RADIX);
-				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", id + ".wav");
+				file = Long.toString(now, Character.MAX_RADIX);
+				GcsFilename fileName2 = new GcsFilename("mymedia-218206.appspot.com", file + ".wav");
 				log.warning(fileName2.getBucketName());
 				GcsFileMetadata metadata = gcsService.getMetadata(fileName2);
 
@@ -108,7 +108,9 @@ public class UploadFile extends HttpServlet {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			response.getWriter().println(id);
+			response.getWriter().println(file);
+			/*Files files = new Files();
+			files.setFileName(file);*/
 		}
 	}
 }
