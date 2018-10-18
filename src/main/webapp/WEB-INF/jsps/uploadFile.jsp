@@ -24,6 +24,13 @@
 <body>
 	<div class="container">
 		<div class="container content">
+			<div class="header">
+				<div id="fb-root">
+					<div class="fb-login-button" data-max-rows="1" data-size="small"
+						data-button-type="continue_with" data-show-faces="true"
+						data-auto-logout-link="true" data-use-continue-as="true"></div>
+				</div>
+			</div>
 			<div class="row share-link">
 				<div class="col-sm-4" style="padding-top: 5px; padding-left: 0;">
 					<p class="sharing-option">Sharing:</p>
@@ -214,6 +221,18 @@
 				$(".loader").show();
 			});
 		});
+		
+		//nút đăng nhập
+		//nút đăng nhập
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=1326545090735920&autoLogAppEvents=1';
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
 </body>
 </html>

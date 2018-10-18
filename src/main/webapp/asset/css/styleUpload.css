@@ -1,12 +1,18 @@
 .container {
 	width: 100%;
-	margin: 0 auto padding-top:30px;
-	padding-top: 30px;
+	margin: 0 auto;
 }
 
 .content {
 	width: 40%;
 	margin: 0 auto center;
+}
+
+.header {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+	padding-top:3px;
 }
 
 .sharing-options {

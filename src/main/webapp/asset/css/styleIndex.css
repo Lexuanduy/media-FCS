@@ -3,7 +3,6 @@
 .container {
 	width: 100%;
 	margin: 0 auto;
-	padding-top: 30px;
 }
 
 .content {
@@ -11,8 +10,16 @@
 	margin: 0 auto center;
 }
 
+.header {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+	padding-top:3px;
+}
+
 .share-option {
-	width: 100%; float : left;
+	width: 100%;
+	float: left;
 	margin: 0;
 	display: none;
 	float: left;
@@ -353,7 +360,8 @@ canvas {
 }
 
 .loader {
-	display: none; margin : 0 auto;
+	display: none;
+	margin: 0 auto;
 	border: 5px solid #f3f3f3;
 	border-radius: 50%;
 	border-top: 5px solid #3498db;
@@ -365,12 +373,32 @@ canvas {
 }
 
 /* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+@
+-webkit-keyframes spin { 0% {
+	-webkit-transform: rotate(0deg);
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+100%
+{
+-webkit-transform
+:
+ 
+rotate
+(360deg);
+ 
+}
+}
+@
+keyframes spin { 0% {
+	transform: rotate(0deg);
+}
+100%
+{
+transform
+:
+ 
+rotate
+(360deg);
+ 
+}
 }
