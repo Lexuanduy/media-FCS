@@ -10,6 +10,33 @@
 	margin: 0 auto center;
 }
 
+
+.upload {
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+
+.upload-content {
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+.record-text {
+	width: 50%;
+	margin: 0;
+	float: left;
+}
+
+.upload-link {
+	width: 50%;
+	margin: 0;
+	float: left;
+	padding-top: 15px;
+	text-
+}
 .header {
 	width: 100%;
 	float: left;
@@ -29,36 +56,11 @@
 	width: 100%;
 }
 
-.upload {
-	width: 100%;
-	margin: 0 auto;
-	float: left;
-}
-
-.upload-content {
-	width: 100%;
-	margin: 0 auto;
-	float: left;
-}
-
-.record-text {
-	width: 50%;
-	margin: 0;
-	float: left;
-}
-
 h2 {
 	color: chocolate;
 	font-size: 3rem;
 }
 
-.upload-link {
-	width: 50%;
-	margin: 0;
-	float: left;
-	padding-top: 15px;
-	text-
-}
 
 .voice-media {
 	width: 100%;
@@ -373,32 +375,12 @@ canvas {
 }
 
 /* Safari */
-@
--webkit-keyframes spin { 0% {
-	-webkit-transform: rotate(0deg);
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
 
-100%
-{
--webkit-transform
-:
- 
-rotate
-(360deg);
- 
-}
-}
-@
-keyframes spin { 0% {
-	transform: rotate(0deg);
-}
-100%
-{
-transform
-:
- 
-rotate
-(360deg);
- 
-}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
