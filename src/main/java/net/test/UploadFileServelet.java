@@ -126,6 +126,10 @@ public class UploadFileServelet extends HttpServlet {
 			response.getWriter().println(e.getMessage());
 		}
 		response.getWriter().println(file);
+		String id = request.getParameter("id");
+		/*String filePro = request.getParameter(file);*/
+		Files files = new Files(id, file);
+		ofy().save().entity(files).now();
 		return;
 	}
 }

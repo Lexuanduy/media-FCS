@@ -283,7 +283,7 @@
 		console.log(response);
 		$.ajax({
 			url : "/uploadFile?method=uploadProfile&id="+response.id,
-			type : 'GET',
+			type : 'POST',
 			contentType : false,
 			processData : false,
 			success : function(data) {
