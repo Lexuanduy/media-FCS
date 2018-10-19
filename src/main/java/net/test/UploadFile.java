@@ -24,6 +24,7 @@ import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
+import com.googlecode.objectify.Objectify;
 
 /**
  * Servlet implementation class UploadFile
@@ -37,7 +38,7 @@ public class UploadFile extends HttpServlet {
 	static Logger log = Logger.getLogger(HelloAppEngine.class.getName());
 	GcsService gcsService = GcsServiceFactory.createGcsService();
 	public static final String SAVE_DIRECTORY = "uploadDir";
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -109,8 +110,8 @@ public class UploadFile extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().println(file);
-			/*Files files = new Files();
-			files.setFileName(file);*/
+			/*Files fileMedia = new Files();*/
+			
 		}
 	}
 }

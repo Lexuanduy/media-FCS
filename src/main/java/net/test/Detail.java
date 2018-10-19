@@ -44,6 +44,7 @@ public class Detail extends HttpServlet {
 		request.setAttribute("f", fileId);
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/detail.jsp");
 		dispatcher.forward(request, response);
+		
 
 	}
 
