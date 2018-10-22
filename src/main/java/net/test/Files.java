@@ -2,21 +2,22 @@ package net.test;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class Files {
 	@Id
 	private String id;
-	private String fileName;
-
+	@Index
+	private String fbid;
+	
 	public Files() {
-		super();
 	}
 
-	public Files(String id, String fileName) {
+	public Files(String id, String fbid) {
 		super();
 		this.id = id;
-		this.fileName = fileName;
+		this.fbid = fbid;
 	}
 
 	public String getId() {
@@ -27,11 +28,11 @@ public class Files {
 		this.id = id;
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getFbid() {
+		return fbid;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFbid(String fbid) {
+		this.fbid = fbid;
 	}
 }

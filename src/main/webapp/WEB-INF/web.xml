@@ -8,5 +8,6 @@
 		<welcome-file>uploadFile.jsp</welcome-file>
 		<welcome-file>uploadFileResult.jsp</welcome-file>
 		<welcome-file>detail.jsp</welcome-file>
+		<welcome-file>allFiles.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

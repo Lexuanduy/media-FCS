@@ -139,23 +139,104 @@ $(document).ready(function(){
     }
     restore();
   });
+  
+  // facebook
+  var facebookId = null;
+	$(document).ready(function() {
+		$("#record").click(function() {
+			$("#level").show();
+		});
+		$("#save").click(function() {
+			$(".input-group").show();
+			$("#level").hide();
+			$(".loader").show();
+		});
+		$("#play").click(function() {
+			$("#audio").show();
+		});
+		$("#pause").click(function() {
+			$(".wav-controls").show();
+		});
+	});
 
+	function statusChangeCallback(response) {
+		console.log('statusChangeCallback');
+		console.log(response);
+		if (response.status === 'connected') {
+			// Logged into your app and Facebook.
+			testAPI();
+		} else {
+			// The person is not logged into your app or we are unable to tell.
+			document.getElementById('status').innerHTML = 'Please log '
+					+ 'into this app.';
+		}
+	}
+	function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});
+	}
+
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '{your-app-id}',
+			cookie : true, // enable cookies to allow the server to access
+			// the session
+			xfbml : true, // parse social plugins on this page
+			version : 'v2.8' // use graph api version 2.8
+		});
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});
+
+	};
+
+	// Load the SDK asynchronously
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id))
+			return;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=1326545090735920&autoLogAppEvents=1';
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	//
+
+	function testAPI() {
+		console.log('Welcome!  Fetching your information.... ');
+		FB.api('/me', function(response) {
+		console.log('Successful login for: ' + response.name);
+		console.log(response);
+		facebookId = response.id;
+		$.ajax({
+	        url: "/hello?id=" + facebookId,
+	        type: 'GET',
+	        contentType: false,
+	        processData: false,
+	        success: function(url) {
+	        	link = "https://media.cec.net.vn/i?f=" + url;
+	        document.getElementById("listFile-uploaded").innerHTML = link;
+	        }
+	      });
+		});
+	}
   var link = "";
   $(document).on("click", "#save:not(.disabled)", function(){
     function upload(blob){
       var formData = new FormData();
       formData.append('file', blob);
       $.ajax({
-        url: "/hello",
+        url: "/hello?id=" + facebookId,
         type: 'POST',
         data: formData,
         contentType: false,
         processData: false,
         success: function(url) {
-        	link = "https://mymedia-218206.appspot.com/i?f=" + url;
+        	link = "https://media.cec.net.vn/i?f=" + url;
         document.getElementById("idShareMediaLink").value = link;
         document.getElementsByClassName("link-share").value = link;
-        	console.log("url");
+        	console.log(url);
         	$(".loader").hide();
         	$(".share-option").show();
             $(".link-share").attr("href", link);

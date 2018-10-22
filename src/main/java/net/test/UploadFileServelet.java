@@ -20,12 +20,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.google.appengine.api.datastore.EmbeddedEntity;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.tools.cloudstorage.GcsFileMetadata;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
+import com.googlecode.objectify.ObjectifyService;
 
 /**
  * Servlet implementation class UploadFileServelet
@@ -35,6 +38,11 @@ import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 		maxFileSize = 1024 * 1024 * 10, // 10MB
 		maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class UploadFileServelet extends HttpServlet {
+
+	static {
+		ObjectifyService.register(Files.class);
+	};
+
 	private static final long serialVersionUID = 1L;
 	GcsService gcsService = GcsServiceFactory.createGcsService();
 	static Logger log = Logger.getLogger(HelloAppEngine.class.getName());
@@ -46,7 +54,7 @@ public class UploadFileServelet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -55,21 +63,9 @@ public class UploadFileServelet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String method = request.getParameter("method");
-		if (method.equals("uploadProfile")) {
-			uploadProfile(request,response);
-			return;
-		}
+
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/uploadFile.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	private void uploadProfile(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String id = request.getParameter("id");
-		String file = request.getParameter("");
-		Files files = new Files(id, file);
-		ofy().save().entity(files).now();
-		
 	}
 
 	/**
@@ -114,22 +110,28 @@ public class UploadFileServelet extends HttpServlet {
 					GcsFileOptions options = new GcsFileOptions.Builder().acl("public-read").build();
 					outputChannel = gcsService.createOrReplace(fileName2, options);
 					outputChannel.write(buf);
+
+					String id = request.getParameter("id");
+					log.warning(id);
+					Files file1 = new Files(file, id);
+					log.warning(id);
+					ofy().save().entity(file1).now();
+					
+					log.warning("save file success");
 					log.warning("close");
 					outputChannel.close();
 				} catch (Exception e) {
 					// TODO: handle exception
+					log.warning("Error 1");
 					e.printStackTrace();
 				}
 			}
 		} catch (Exception e) {
+			log.warning("Error 2");
 			e.printStackTrace();
 			response.getWriter().println(e.getMessage());
 		}
 		response.getWriter().println(file);
-		String id = request.getParameter("id");
-		/*String filePro = request.getParameter(file);*/
-		Files files = new Files(id, file);
-		ofy().save().entity(files).now();
 		return;
 	}
 }
