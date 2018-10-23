@@ -61,10 +61,19 @@ fb{
 	margin: 0 auto;
 }
 
+#all-files{
+	width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
 #list-files{
 	width:100%;
 	float:left;
 	margin: 0 auto;
+	display:none;
 }
 
 .files-uploaded {
@@ -74,12 +83,18 @@ fb{
     font-family: initial;
     color: forestgreen;
     font-size: 15px;
+    display:none;
 }
 
 #listFile-uploaded{
 	width:100%;
 	float:left;
+	font-size: 15px;
 	margin: 0 auto;
+}
+
+#listFile-uploaded-content{
+	width:80%;
 }
 
 .share-option {

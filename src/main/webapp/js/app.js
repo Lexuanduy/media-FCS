@@ -164,16 +164,22 @@ $(document).ready(function(){
 		console.log(response);
 		if (response.status === 'connected') {
 			// Logged into your app and Facebook.
+			$("#list-files").show();
+			$(".files-uploaded").show();
 			testAPI();
 		} else {
+			$("#list-files").hide();
+			$(".files-uploaded").hide();
 			// The person is not logged into your app or we are unable to tell.
 			document.getElementById('status').innerHTML = 'Please log '
 					+ 'into this app.';
 		}
 	}
+	
 	function checkLoginState() {
 		FB.getLoginStatus(function(response) {
 			statusChangeCallback(response);
+			
 		});
 	}
 
@@ -215,8 +221,9 @@ $(document).ready(function(){
 	        contentType: false,
 	        processData: false,
 	        success: function(url) {
-	        	link = "https://media.cec.net.vn/i?f=" + url;
-	        document.getElementById("listFile-uploaded").innerHTML = link;
+	        	console.log(url);
+      	        /*link = "https://media.cec.net.vn/i?f=" + url;*/
+	      	    document.getElementById("listFile-uploaded-content").innerHTML = url;
 	        }
 	      });
 		});

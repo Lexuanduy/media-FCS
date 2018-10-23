@@ -1,7 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <script src="../src/recorder.js"></script>
 <script src="../src/Fr.voice.js"></script>
 <script src="../js/jquery.js"></script>
@@ -24,12 +28,10 @@
 			<div class="upload">
 				<div class="upload-content">
 					<div class="record-text">
-						<h2>
-							<a href="https://media.cec.net.vn" style="color: chocolate;">Record
-						</h2>
+						<h2>Record</h2>
 					</div>
 					<div class="upload-link">
-						<a href="/uploadFile">Or upload?</a>
+						<a href="/uploadFile"><!-- Or upload? --></a>
 					</div>
 				</div>
 				<p class="voice-media">My media - The premier voice recording
@@ -48,12 +50,11 @@
 					</fb:login-button>
 					<div id="status"></div>
 					<div id="all-files">
-						<a href="/u">Click view all files in website >></a>
+					<a href="/u">Click view all files in website >></a>
 					</div>
 					<div id="list-files">
 						<div class="files-uploaded">Your files have been uploaded:</div>
 						<div id="listFile-uploaded">
-							<div id="listFile-uploaded-content"></div>
 						</div>
 					</div>
 				</div>
@@ -147,7 +148,7 @@
 
 				<canvas id="level" height="200"></canvas>
 				<div class="bottom">
-					Â© 2018 <a href="https://media.cec.net.vn">My media</a>
+					© 2018 <a href="https://media.cec.net.vn">My media</a>
 				</div>
 			</div>
 		</div>

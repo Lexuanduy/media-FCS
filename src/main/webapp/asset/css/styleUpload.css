@@ -54,6 +54,14 @@ fb{
 	margin:0;
 }
 
+#all-files{
+	width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
 .sharing-options {
 	width: 100%;
 	margin: 8px 0 0 0;

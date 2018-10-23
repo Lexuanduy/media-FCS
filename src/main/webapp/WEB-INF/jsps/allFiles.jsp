@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet"
@@ -28,7 +27,10 @@
 		<div class="container content">
 			<div class="upload-return">
 				<div class="upload-text">
-					<h2>All Files</h2>
+					<h2>
+						<a href="https://media.cec.net.vn/u" style="color: chocolate;">All
+							Files</a>
+					</h2>
 				</div>
 				<div class="record-link">
 					<a href="https://media.cec.net.vn">Record now >></a>
@@ -44,35 +46,27 @@
 					</div>
 				</div>
 				<div class="all-listFiles">
-					<div class="listFiles-title">List all files:</div>
+					<div class="listFiles-title">
+						<!-- List all files: -->
+					</div>
 					<div class="all-files">
+						<%-- <ul>
+							<c:forEach items="${urlList}" var="url">
+								<li>https://media.cec.net.vn/i?f=${url.id}</li>
+							</c:forEach>
+						</ul> --%>
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th scope="col">A list of all the files that have been uploaded to the website</th>
-									<th scope="col"></th>
-									<th scope="col"></th>
-									<th scope="col"></th>
+									<th scope="col">List files uploaded:</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td colspan="2"></td>
-									<td></td>
-								</tr>
+								<c:forEach items="${urlList}" var="url">
+									<tr>
+										<th>https://media.cec.net.vn/i?f=${url.id}</th>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Logger;
@@ -64,6 +65,29 @@ public class UploadFileServelet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
+		/*String id = request.getParameter("id");
+		log.warning(id);*/
+		/*if (id == null) {
+			response.getWriter().print("facebook id null");
+			log.warning("id null");
+			return;
+		}*/
+		/*List<Files> listFiles = ofy().load().type(Files.class).filter("fbid", id).list();
+		log.warning("message");
+		if (listFiles == null) {
+			log.warning("listFiles null");
+			response.setStatus(400);
+			response.getWriter().print("null");
+			return;
+		}
+		List<String> list = new ArrayList<>();
+		for (Files file : listFiles) {
+			list.add(file.getId());
+			String link = "https://media.cec.net.vn/i?f=";
+			response.getWriter().println(link + file.getId());
+		}*/
+		/*response.getWriter().println(list);*/
+		
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/uploadFile.jsp");
 		dispatcher.forward(request, response);
 	}

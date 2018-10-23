@@ -132,7 +132,17 @@
 	FB.api('/me', function(response) {
 	console.log(response); //return facebook Id
 	facebookId = response.id;
-	
+	/*$.ajax({
+        url: "/uploadFile?id=" + facebookId,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(url) {
+        	console.log(url);
+  	        link = "https://media.cec.net.vn/i?f=" + url;
+      	    document.getElementById("files-uploaded").innerHTML = url;
+        }
+      });*/
 	console.log('Successful login for: ' + response.name);
 	document.getElementById('status').innerHTML =
 	'Thanks for logging in, ' + response.name + '!';

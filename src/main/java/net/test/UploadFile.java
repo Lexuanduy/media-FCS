@@ -65,21 +65,31 @@ public class UploadFile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		/*response.getWriter().append("Served at: ").append(request.getContextPath());*/
 		//
+		
 		String id = request.getParameter("id");
-		if (id == null) {
+		log.warning(id);
+		/*if (id == null) {
 			response.getWriter().print("facebook id null");
+			log.warning("id null");
 			return;
-		}
-		Files files = ofy().load().type(Files.class).filter("fbid", id).first().now();
-		if (files == null) {
+		}*/
+		List<Files> listFiles = ofy().load().type(Files.class).filter("fbid", id).list();
+		log.warning("message");
+		if (listFiles == null) {
+			log.warning("listFiles null");
 			response.setStatus(400);
 			response.getWriter().print("null");
 			return;
 		}
-		response.getWriter().println(files);
-		
+		List<String> list = new ArrayList<>();
+		for (Files file : listFiles) {
+			/*list.add(file.getId());*/
+			String link = "https://media.cec.net.vn/i?f=";
+			response.getWriter().println(link + file.getId());
+		}
+		/*response.getWriter().println(list);*/
 		return;
 	}
 
