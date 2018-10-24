@@ -40,15 +40,14 @@ public class Detail extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		//
-		String fileId = request.getParameter("f");
-		request.setAttribute("f", fileId);
-		
-		String fiel = request.getPathInfo();
-		
-		
+		/*
+		 * String fileId = request.getParameter("f"); request.setAttribute("f", fileId);
+		 */
+
+		String url = request.getPathInfo();
+		request.setAttribute("url", url);
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/jsps/detail.jsp");
 		dispatcher.forward(request, response);
-		
 
 	}
 
@@ -59,8 +58,6 @@ public class Detail extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
 
 	}
 

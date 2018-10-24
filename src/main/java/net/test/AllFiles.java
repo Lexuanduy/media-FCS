@@ -28,7 +28,7 @@ public class AllFiles extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		List<Files> listFiles = ofy().load().type(Files.class).list();
+		List<Files> listFiles = ofy().load().type(Files.class).limit(30).list();
 		log.warning("message");
 		if (listFiles == null) {
 			log.warning("listFiles null");

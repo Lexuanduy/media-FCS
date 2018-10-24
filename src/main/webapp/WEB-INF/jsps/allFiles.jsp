@@ -64,7 +64,7 @@
 							<tbody>
 								<c:forEach items="${urlList}" var="url">
 									<tr>
-										<th>https://media.cec.net.vn/i?f=${url.id}</th>
+										<th>https://media.cec.net.vn/i/${url.id}</th>
 									</tr>
 								</c:forEach>
 							</tbody>

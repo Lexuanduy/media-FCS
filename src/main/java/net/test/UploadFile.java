@@ -70,12 +70,14 @@ public class UploadFile extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		log.warning(id);
-		/*if (id == null) {
+		if (id == null||id.length()==0 ) {
+			response.setStatus(403);
 			response.getWriter().print("facebook id null");
 			log.warning("id null");
 			return;
-		}*/
-		List<Files> listFiles = ofy().load().type(Files.class).filter("fbid", id).list();
+		}
+		
+		List<Files> listFiles = ofy().load().type(Files.class).filter("fbid", id).limit(15).list();
 		log.warning("message");
 		if (listFiles == null) {
 			log.warning("listFiles null");
@@ -86,7 +88,7 @@ public class UploadFile extends HttpServlet {
 		List<String> list = new ArrayList<>();
 		for (Files file : listFiles) {
 			/*list.add(file.getId());*/
-			String link = "https://media.cec.net.vn/i?f=";
+			String link = "https://media.cec.net.vn/i/";
 			response.getWriter().println(link + file.getId());
 		}
 		/*response.getWriter().println(list);*/

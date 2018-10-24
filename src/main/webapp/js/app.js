@@ -240,7 +240,7 @@ $(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(url) {
-        	link = "https://media.cec.net.vn/i?f=" + url;
+        	link = "https://media.cec.net.vn/i/" + url;
         document.getElementById("idShareMediaLink").value = link;
         document.getElementsByClassName("link-share").value = link;
         	console.log(url);

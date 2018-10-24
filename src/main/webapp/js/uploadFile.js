@@ -57,7 +57,7 @@
 				console.log(data);
 				/* $("#file-link").html("/Detail?fileId=" + data); */
 				/* link = "/i?f=" + data; */
-				link = "https://media.cec.net.vn/i?f=" + data;
+				link = "https://media.cec.net.vn/i/" + data;
 				document.getElementById("file-link").value = link;
 				$(".loader").hide();
 				$(".share-link").show();

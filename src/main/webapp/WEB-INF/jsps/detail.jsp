@@ -17,13 +17,13 @@
 	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="asset/css/styleDetail.css">
+<link rel="stylesheet" href="/asset/css/styleDetail.css">
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Lato:400,700" />
 <!-- <link rel="shortcut icon" href="../favicon.ico"> -->
-<link rel="stylesheet" href="asset/css/reset.css" />
-<link rel="stylesheet" href="asset/css/demo.css" />
-<link rel="stylesheet" href="asset/css/audioplayer.css" />
+<link rel="stylesheet" href="/asset/css/reset.css" />
+<link rel="stylesheet" href="/asset/css/demo.css" />
+<link rel="stylesheet" href="/asset/css/audioplayer.css" />
 <script>
 	/*
 		VIEWPORT BUG FIX
@@ -57,10 +57,10 @@
 			<h2>My media - The premier voice recording service.</h2>
 			<div id="wrapper">
 				<audio preload="auto" controls>
-					<source src="https://storage.cloud.google.com/mymedia-218206.appspot.com/${f}.wav">
+					<source src="https://storage.cloud.google.com/mymedia-218206.appspot.com${url}.wav">
 				</audio>
-				<script src="js/jquery.js"></script>
-				<script src="js/audioplayer.js"></script>
+				<script src="/js/jquery.js"></script>
+				<script src="/js/audioplayer.js"></script>
 				<script>
 					$(function() {
 						$('audio').audioPlayer();
@@ -69,30 +69,5 @@
 			</div>
 		</div>
 	</div>
-	<%-- <div class="container">
-		<div class="container content">
-			<h2>Play</h2>
-			<p class="voice-media">My media - The premier voice recording service.</p>
-			<audio id="player" controls>
-				<source
-					src="https://mymedia-218206.appspot.com/${f}.wav"
-					id="audio" />
-			</audio>
-			<embed src="https://mymedia-218206.appspot.com/${f}.wav" width="220" height="140" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/flashplayer/">
-			<!-- <div class="bottom">© 2018
-			<a href="https://mymedia-218206.appspot.com">My media</a>
-			</div> -->
-		</div>
-	</div>
-	<script>
-		function handleFiles(event) {
-			var files = event.target.files;
-			$("#audio").attr("src", URL.createObjectURL(files[0]));
-			document.getElementById("player").load();
-			document.getElementById("player").play();
-		}
-		document.getElementById("file").addEventListener("change", handleFiles,
-				false);
-	</script> --%>
 </body>
 </html>
